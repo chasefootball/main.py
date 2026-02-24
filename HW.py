@@ -70,16 +70,25 @@ if chioce == "e":
             print(f"{plain_text} is decrypted to {cipher_text}")
             break
 
-        
 if chioce == "d":
     while True:
+        cipher_text = ""
         
         for letter in plain_text:
-                position = alphabet.find(letter)
-                ask = input(f"{cipher_text}, is this readable? y/n ")
-                shift_nums += 1
+            position = alphabet.find(letter)
+
+            if position == -1:
+                cipher_text += letter
+            else:
+                decrypt_position = position - shift_nums
+                decrypt_position %= len(alphabet)
+                cipher_text += alphabet[decrypt_position]
+
+        print(cipher_text)
+        ask = input("Is this readable? y/n ")
 
         if ask == "y":
-            print(f"we need the shift key {shift_nums} times ")
+            print(f"You need the shift key {shift_nums} times ")
             break
-                
+
+        shift_nums += 1
