@@ -72,9 +72,11 @@ if chioce == "e":
 
 while True:
     if chioce == "d":
-        ask = input(f"{cipher_text}, is this readable? y/n ")
-        shift_nums += 1
+        for letter in plain_text:
+                position = alphabet.find(letter)
+                ask = input(f"{cipher_text}, is this readable? y/n ")
+                shift_nums += 1
 
         if ask == "y":
             print(f"we need the shift key {shift_nums} amount of times ")
-            break
+        break
