@@ -10,6 +10,7 @@ add = True
 # This is setting sub (subtract) = False
 sub = False
 
+shift_nums = 0
 
 chioce = input("would you like me to encrypt or decrypt for you? e/d ")
 if chioce == "e":
@@ -19,8 +20,6 @@ if chioce == "d":
 
 # This is asking the user for an input and giving plain_text a value
 plain_text = input(f"What would you like me to {chioce} for you? ")
-
-shift_nums = 0
 
 # This is asking the user for an input and giving shift_key a value
 shift_key = int(input("What would you like to set your shift key to? "))
@@ -47,7 +46,7 @@ if chioce == "e":
                     encrypt_letter = alphabet[encrypt_position]
 
                     cipher_text += encrypt_letter
-            print(f"Your cipher text is {cipher_text} ")
+            print(f"Your encrypted cipher text is {cipher_text} ")
             break
         
         if sub:
@@ -68,15 +67,19 @@ if chioce == "e":
 
                     cipher_text -= encrypt_letter
 
-        print(f"{plain_text} is decrypted to {cipher_text}")
+            print(f"{plain_text} is decrypted to {cipher_text}")
+            break
 
-while True:
-    if chioce == "d":
+        
+if chioce == "d":
+    while True:
+        
         for letter in plain_text:
                 position = alphabet.find(letter)
                 ask = input(f"{cipher_text}, is this readable? y/n ")
                 shift_nums += 1
 
         if ask == "y":
-            print(f"we need the shift key {shift_nums} amount of times ")
-        break
+            print(f"we need the shift key {shift_nums} times ")
+            break
+                
