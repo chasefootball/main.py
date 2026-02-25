@@ -28,6 +28,7 @@ if chioce == "e":
     # This is asking the user for an input and giving add_subtract a value
     add_subtract = input("would you like to add or subtract your shift key? add/sub ")
 
+    # This is saying while true if you want to add the shift key it will add it
     while True:
         if add:
             for letter in plain_text:
